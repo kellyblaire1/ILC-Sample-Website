@@ -1,0 +1,9 @@
+:root {
+    --bs-primary: #111b3a!important;
+    --bs-warning: #dda741!important;
+}
+
+.bg-primary {
+    background-color: #111b3a !important;
+    color: #fff !important;
+}
