@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .car-container {
+      position: relative;
+      width: 400px;
+      height: 200px;
+    }
+
+    /* Car Body */
+    .car-body {
+      position: absolute;
+      width: 350px;
+      height: 60px;
+      background-color: #8A2BE2; /* Purple */
+      bottom: 50px;
+      left: 25px;
+      border-radius: 30px 80px 10px 10px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Car Top */
+    .car-top {
+      position: absolute;
+      width: 180px;
+      height: 55px;
+      background-color: #7B1FA2; /* Darker purple */
+      bottom: 110px;
+      left: 80px;
+      border-radius: 60px 70px 0 0;
+      box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Windows */
+    .window-front {
+      position: absolute;
+      width: 60px;
+      height: 40px;
+      background-color: #ADD8E6;
+      bottom: 110px;
+      left: 100px;
+      border-radius: 5px 30px 0 0;
+    }
+
+    .window-back {
+      position: absolute;
+      width: 60px;
+      height: 40px;
+      background-color: #ADD8E6;
+      bottom: 110px;
+      left: 170px;
+      border-radius: 0 30px 0 0;
+    }
+
+    /* Front Bump */
+    .front-bump {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #9C27B0; /* Another shade of purple */
+      bottom: 50px;
+      left: 10px;
+      border-radius: 10px 0 0 10px;
+    }
+
+    /* Back Bump */
+    .back-bump {
+      position: absolute;
+      width: 20px;
+      height: 40px;
+      background-color: #9C27B0; /* Another shade of purple */
+      bottom: 50px;
+      right: 25px;
+      border-radius: 0 10px 10px 0;
+    }
+
+    /* Wheels */
+    .wheel {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-color: #333;
+      border-radius: 50%;
+      bottom: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .wheel-front {
+      left: 60px;
+    }
+
+    .wheel-back {
+      right: 60px;
+    }
+
+    /* Wheel Rims */
+    .wheel-rim {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #DDD;
+      border-radius: 50%;
+      top: 15px;
+      left: 15px;
+    }
+
+    /* Mercedes Logo */
+    .mercedes-logo {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: #CCC;
+      border-radius: 50%;
+      top: 80px;
+      left: 155px;
+      border: 3px solid #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .logo-star {
+      width: 30px;
+      height: 30px;
+      position: relative;
+    }
+
+    .logo-star::before,
+    .logo-star::after {
+      content: "";
+      position: absolute;
+      background-color: #333;
+      width: 2px;
+      height: 30px;
+      left: 14px;
+    }
+
+    .logo-star::before {
+      transform: rotate(60deg);
+    }
+
+    .logo-star::after {
+      transform: rotate(-60deg);
+    }
+
+    .logo-star-middle {
+      position: absolute;
+      background-color: #333;
+      width: 2px;
+      height: 30px;
+      left: 14px;
+    }
+
+    /* Headlights */
+    .headlight {
+      position: absolute;
+      width: 15px;
+      height: 10px;
+      background-color: #FFFF99;
+      border-radius: 5px;
+      bottom: 80px;
+    }
+
+    .headlight-left {
+      left: 25px;
+    }
+
+    .headlight-right {
+      right: 40px;
+    }
+
+    /* License Plate */
+    .license-plate {
+      position: absolute;
+      width: 50px;
+      height: 15px;
+      background-color: #FFF;
+      bottom: 55px;
+      left: 20px;
+      border: 1px solid #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 8px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Ground Shadow */
+    .shadow {
+      position: absolute;
+      width: 380px;
+      height: 10px;
+      background-color: rgba(0, 0, 0, 0.2);
+      bottom: 0;
+      left: 10px;
+      border-radius: 50%;
+    }
+
+    /* Road */
+    .road {
+      position: absolute;
+      width: 100%;
+      height: 100px;
+      background-color: #555;
+      bottom: 0;
+      z-index: -1;
+    }
+
+    /* Road Lines */
+    .road-line {
+      position: absolute;
+      width: 50px;
+      height: 5px;
+      background-color: #FFF;
+      bottom: 50px;
+    }
+
+    .road-line:nth-child(1) { left: 0; }
+    .road-line:nth-child(2) { left: 70px; }
+    .road-line:nth-child(3) { left: 140px; }
+    .road-line:nth-child(4) { left: 210px; }
+    .road-line:nth-child(5) { left: 280px; }
+    .road-line:nth-child(6) { left: 350px; }
+  </style>
+</head>
+<body>
+  <div class="car-container">
+    <div class="road">
+      <div class="road-line"></div>
+      <div class="road-line"></div>
+      <div class="road-line"></div>
+      <div class="road-line"></div>
+      <div class="road-line"></div>
+      <div class="road-line"></div>
+    </div>
+    <div class="shadow"></div>
+    <div class="car-body"></div>
+    <div class="car-top"></div>
+    <div class="front-bump"></div>
+    <div class="back-bump"></div>
+    <div class="window-front"></div>
+    <div class="window-back"></div>
+    <div class="wheel wheel-front">
+      <div class="wheel-rim"></div>
+    </div>
+    <div class="wheel wheel-back">
+      <div class="wheel-rim"></div>
+    </div>
+    <div class="mercedes-logo">
+      <div class="logo-star">
+        <div class="logo-star-middle"></div>
+      </div>
+    </div>
+    <div class="headlight headlight-left"></div>
+    <div class="headlight headlight-right"></div>
+    <div class="license-plate">MB</div>
+  </div>
+</body>
+</html>

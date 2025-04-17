@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purple Mercedes-Benz</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .car-container {
+            position: relative;
+            width: 400px;
+            height: 200px;
+        }
+        
+        .car {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .car-body {
+            position: absolute;
+            width: 350px;
+            height: 100px;
+            background-color: #8a2be2; /* Purple color */
+            border-radius: 50px 50px 20px 20px;
+            top: 60px;
+            left: 25px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .car-top {
+            position: absolute;
+            width: 250px;
+            height: 80px;
+            background-color: #8a2be2;
+            border-radius: 30px 30px 0 0;
+            top: 20px;
+            left: 75px;
+        }
+        
+        .window {
+            position: absolute;
+            width: 230px;
+            height: 60px;
+            background-color: #add8e6;
+            border-radius: 20px 20px 0 0;
+            top: 30px;
+            left: 85px;
+        }
+        
+        .window-divider {
+            position: absolute;
+            width: 2px;
+            height: 60px;
+            background-color: #333;
+            top: 30px;
+            left: 200px;
+        }
+        
+        .wheel {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #333;
+            border-radius: 50%;
+            top: 130px;
+        }
+        
+        .wheel::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #555;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+        }
+        
+        .wheel::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #888;
+            border-radius: 50%;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .front-wheel {
+            left: 80px;
+        }
+        
+        .back-wheel {
+            left: 260px;
+        }
+        
+        .grille {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            background-color: #333;
+            border-radius: 5px;
+            top: 90px;
+            left: 50px;
+        }
+        
+        .grille::before {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 5px;
+            background-color: #555;
+            top: 5px;
+            left: 5px;
+        }
+        
+        .grille::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 20px;
+            background-color: #555;
+            top: 5px;
+            left: 20px;
+        }
+        
+        .mercedes-logo {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: silver;
+            border-radius: 50%;
+            top: 70px;
+            left: 185px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .headlight {
+            position: absolute;
+            width: 20px;
+            height: 15px;
+            background-color: #ffeb3b;
+            border-radius: 10px;
+            top: 90px;
+        }
+        
+        .left-headlight {
+            left: 30px;
+        }
+        
+        .right-headlight {
+            left: 350px;
+        }
+        
+        .logo-text {
+            position: absolute;
+            top: 170px;
+            left: 150px;
+            color: #8a2be2;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="car-container">
+        <div class="car">
+            <div class="car-body"></div>
+            <div class="car-top"></div>
+            <div class="window"></div>
+            <div class="window-divider"></div>
+            <div class="wheel front-wheel"></div>
+            <div class="wheel back-wheel"></div>
+            <div class="grille"></div>
+            <div class="mercedes-logo">✧</div>
+            <div class="headlight left-headlight"></div>
+            <div class="headlight right-headlight"></div>
+            <div class="logo-text">Mercedes-Benz</div>
+        </div>
+    </div>
+</body>
+</html>
