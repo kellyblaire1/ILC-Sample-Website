@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <div id="sinachi">Sinachi's ID</div>
+
+    <div id="ini">Ini's ID</div>
+
+    <button id="generate" class="btn btn-primary">Generate My ID</button>
+
+    <div class="display-1" id="math"></div>
+
+    <div class="display-1" id="location">
+        <!-- User's location will be displayed here -->
+    </div>
+
+
+    <!-- COUNTDOWN TIMER -->
+    <div class="p-5 border rounded-3 bg-danger-subtle mx-auto my-5 text-center">
+        <p>The game start in:</p>
+        <div id="countdown-timer" class="display-1 text-danger fw-bold py-5"></div>
+    </div>
+
+    <!-- <div id="countdown-timer"></div> -->
+    <!-- DIGITAL CLOCK -->
+    <div class="p-5 border rounded-3 bg-success-subtle mx-auto my-5 text-center">
+        <p>Current Time:</p>
+        <div id="digital-clock" class="display-1 text-success fw-bold"></div>
+        <!-- ADD DATE -->
+        <div id="current-date" class="display-6 text-success fw-bold"></div>
+    </div>
+
+    <!-- BASIC CALCULATOR -->
+    <div class="container">
+        <h1 class="text-center">Basic Calculator</h1>
+        <form id="calculator" class="text-center">
+            <input type="number" id="num1" placeholder="Enter first number" required>
+            <select id="operation">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="number" id="num2" placeholder="Enter second number" required>
+            
+            <button type="submit">Calculate</button>
+        </form>
+        
+
+        <div>
+            <div class="phone-container">
+                <div class="phone-camera"></div>
+                <div class="phone-screen d-flex flex-column justify-content-start align-items-start p-3">
+                    <div id="result" class="text-end fs-1 mb-0 border bg-light rounded text-dark w-100 p-2 mb-3">0</div>
+
+                    <hr>
+                    <div class="row g-3">
+                        <div class="col-3">
+                            <button id="key7" class="key btn btn-lg btn-light calc-digit-btn">7</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="key8" class="key btn btn-lg btn-light calc-digit-btn">8</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="key9" class="key btn btn-lg btn-light calc-digit-btn">9</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="keyClear" class="key btn btn-lg btn-danger calc-btn">C</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="key4" class="key btn btn-lg btn-light calc-digit-btn">4</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="key5" class="key btn btn-lg btn-light calc-digit-btn">5</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="key6" class="key btn btn-lg btn-light calc-digit-btn">6</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="keyDivide" class="key btn btn-lg btn-light calc-btn">/</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="key1" class="key btn btn-lg btn-light calc-digit-btn">1</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="key2" class="key btn btn-lg btn-light calc-digit-btn">2</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="key3" class="key btn btn-lg btn-light calc-digit-btn">3</button>
+                        </div>
+
+                        <div class="col-3">
+                            <button id="keyMultiply" class="key btn btn-lg btn-light calc-btn">x</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="key0" class="key btn btn-lg btn-light calc-digit-btn">0</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="key00" class="key btn btn-lg btn-light calc-digit-btn">00</button>
+                        </div>
+                        <div class="col-3">
+                            <button id="keyDot" class="key btn btn-lg btn-light calc-digit-btn">.</button>
+                        </div>
+
+                        <div class="col-3">
+                            <button id="keyMinus" class="key btn btn-lg btn-light calc-btn">-</button>
+                        </div>
+
+                        <div class="col-6">
+                            <button id="keyPlus" class="key btn btn-lg btn-light calc-big-btn">+</button>
+                        </div>
+
+                        <div class="col-6">
+                            <button id="keyEqual" class="key btn btn-lg btn-primary calc-big-btn">=</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EAVESDROPPING -->
+         <!-- MALWARE -->
+
+        <!-- Your Javascript code should always be after the HTML codes and just before your body closing tag -->
+        <script src="js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            const math = document.getElementById('math');
+
+            let num1 = 1300;
+            let num2 = 20;
+
+            let add = '+';
+            let subtract = '-';
+            let divide = '/';
+            let multiply = '*';
+
+            let calculate = num1 - num2;
+            math.innerText = calculate;
+        </script>
+
+        <script>
+            // Get user's coordinates (Latitude and Longitude)
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+                // Show on Google Maps
+                const locationDiv = document.getElementById('location');
+                locationDiv.innerHTML = `Latitude: ${latitude}, Longitude: ${longitude} | <a href="https://www.google.com/maps?q=${latitude},${longitude}" target="_blank">View on Google Maps</a>`;
+                // locationDiv.innerText = `Latitude: ${latitude}, Longitude: ${longitude}`;
+                // Show on OpenStreetMap
+                // locationDiv.innerHTML = `<a href="https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=12/${latitude}/${longitude}" target="_blank">View on OpenStreetMap</a>`;
+                // locationDiv.innerText = `Latitude: ${latitude}, Longitude: ${longitude}`;
+                // Show on Bing Maps
+                // locationDiv.innerHTML = `<a href="https://www.bing.com/maps?q=${latitude},${longitude}" target="_blank">View on Bing Maps</a>`;
+                // locationDiv.innerText = `Latitude: ${latitude}, Longitude: ${longitude}`;
+                // Show on MapQuest
+                // locationDiv.innerHTML = `<a href="https://www.mapquest.com/latlng/${latitude},${longitude}" target="_blank">View on MapQuest</a>`;
+            }, function (error) {
+                console.error('Error getting location:', error);
+            });
+        </script>
+
+
+        <script>
+            const sinachi = document.getElementById('sinachi');
+            const inioluwa = document.getElementById('ini');
+            const generateButton = document.getElementById('generate');
+
+            generateButton.addEventListener('click', function () {
+                const randomId = Math.floor(Math.random() * 1000000);
+                sinachi.innerText = `Sinachi's ID: SIN${randomId * 3}`;
+                inioluwa.innerText = `Ini's ID: INI${randomId * 4}`;
+            });
+
+            // window.addEventListener('click', function () {
+            //     alert('User just clicked this screen');
+            // });
+
+            alert('Hello, world!');
+
+            if(confirm('Do you love Roblox?')){
+                alert('Ini loves Roblox too!');
+            } else {
+                alert('That\'s okay, even Sinachi does not love Roblox.');
+            }
+
+            const keys = document.querySelectorAll('.key');
+            keys.forEach(key => {
+                key.addEventListener('click', function () {
+                    const keyValue = this.innerText;
+                    if (keyValue === 'C') {
+                        document.getElementById('num1').value = '';
+                        document.getElementById('num2').value = '';
+                        document.getElementById('result').innerText = '0';
+                    } else if (keyValue === '=') {
+                        document.getElementById('calculator').dispatchEvent(new Event('submit'));
+                    } else if (['+', '-', '*', '/'].includes(keyValue)) {
+                        document.getElementById('operation').value = keyValue;
+                    } else {
+                        const currentInput = document.activeElement;
+                        if (currentInput.id === 'num1' || currentInput.id === 'num2') {
+                            currentInput.value += keyValue;
+                        }
+                    }
+                });
+            });
+
+            // Countdown
+            let countdown = 10;
+            let countdownInterval = setInterval(() => {
+                if (countdown > 0) {
+                    document.getElementById('countdown-timer').innerText = countdown;
+                    countdown--;
+                } else if (countdown === 0) {
+                    // alert('Game Start!');
+                    document.getElementById('countdown-timer').innerText = 'Game Start!';
+                    countdown = -1; // Set countdown to -1 to stop the countdown
+                    clearInterval(countdownInterval);
+                }
+                else {
+                    clearInterval(countdownInterval);
+                    console.log('Countdown finished!');
+                }
+            }, 1000);
+
+            // Digital Clock
+            function updateClock() {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                document.getElementById('digital-clock').innerText = `${hours}:${minutes}:${seconds}`;
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                const date = now.toLocaleDateString('en-US', options);
+                document.getElementById('current-date').innerText = date;
+            }
+            setInterval(updateClock, 1000);
+            updateClock(); // Initial call to display the clock immediately
+
+            // Basic Calculator
+            document.getElementById('calculator').addEventListener('submit', function (event) {
+                event.preventDefault();
+                const num1 = parseFloat(document.getElementById('num1').value);
+                const num2 = parseFloat(document.getElementById('num2').value);
+                const operation = document.getElementById('operation').value;
+                let result;
+
+                switch (operation) {
+                    case '+':
+                        result = num1 + num2;
+                        break;
+                    case '-':
+                        result = num1 - num2;
+                        break;
+                    case '*':
+                        result = num1 * num2;
+                        break;
+                    case '/':
+                        result = num1 / num2;
+                        break;
+                    default:
+                        result = 'Invalid operation';
+                }
+                document.getElementById('result').innerText = `Result: ${result}`;
+            });
+            // Keypad functionality
+            document.querySelectorAll('.btn-primary').forEach(button => {
+                button.addEventListener('click', function () {
+                    const value = this.innerText;
+                    if (value === '=') {
+                        document.getElementById('calculator').dispatchEvent(new Event('submit'));
+                    } else if (value === 'C') {
+                        document.getElementById('num1').value = '';
+                        document.getElementById('num2').value = '';
+                        document.getElementById('result').innerText = '';
+                    } else if (['+', '-', '*', '/'].includes(value)) {
+                        document.getElementById('operation').value = value;
+                    } else {
+                        const currentInput = document.activeElement;
+                        if (currentInput.id === 'num1' || currentInput.id === 'num2') {
+                            currentInput.value += value;
+                        }
+                    }
+                });
+            });
+            // Disable form submission on Enter key
+            document.getElementById('calculator').addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                }
+            });
+            // Disable form submission on Enter key for the calculator  
+        </script>
+</body>
+
+</html>
